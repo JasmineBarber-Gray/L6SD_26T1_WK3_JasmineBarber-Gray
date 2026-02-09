@@ -9,4 +9,21 @@
 
 #Selection sort
 #Selection sort is a simple comparison-based sorting algorithm. It works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and swapping it with the first unsorted element until the entire list is sorted.
-set = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
+
+#Selection sort function
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index - i
+        for i in range(i=1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+                arr[i], arr[min_index] = arr[min_index], arr[i]
+            return arr
+                
+#set data list
+set_data = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
+
+#sort data list
+sorted_data = selection_sort(set_data)
+print("Sorted data:", sorted_data)
