@@ -20,11 +20,11 @@ def heapify(arr, n, i):
 def heap_sort(arr):
     n = len(arr)
 
-    # Build max heap
+    #max heap
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
 
-    # Extract elements one by one
+    #Extract elements one by one
     for i in range(n - 1, 0, -1):
         arr[0], arr[i] = arr[i], arr[0]
         heapify(arr, i, 0)
@@ -118,8 +118,8 @@ def time_sort(sort_func, data):
 #Load the datasets
 import pandas as pd
 
-temps = pd.read_csv("temperatures_auckland_data.csv")
-kiwi = pd.read_csv("kiwi_data.csv")
+temps = pd.read_csv(r"C:\Users\DELL 5520\Downloads\temperatures_auckland_data.csv")
+kiwi = pd.read_csv(r"C:\Users\DELL 5520\Downloads\kiwi_data.csv")
 
 #temperature data
 tmax = temps["Tmax"].dropna().tolist()
@@ -140,5 +140,9 @@ algorithms = {
 }
 
 for name, func in algorithms.items():
-    print(f"{name}: {time_sort(func, temps):.6f} seconds")
-    print(f"{name}: {time_sort(func, kiwi):.6f} seconds")
+    print(f"{name}: {time_sort(func, tmax):.6f} seconds")
+    print(f"{name}: {time_sort(func, tmin):.6f} seconds")
+
+#checking the current working directory to ensure the CSV files are in the correct location
+import os
+print(os.getcwd())
