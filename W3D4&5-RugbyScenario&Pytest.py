@@ -200,5 +200,18 @@ with pd.ExcelWriter("Time_Complexities.xlsx") as writer:
     results_df.to_excel(writer, sheet_name="Timing Results", index=False)
     complexity_df.to_excel(writer, sheet_name="Complexity Table", index=False)
 
+# Print header
+print(f"{'Algorithm':<10} {'Sorted':<10} {'Unsorted':<10} {'Duplicate':<10} {'Reverse':<10} {'No Data':<10}")
+print("-"*60)
+
+# Print each row
+for i in range(len(complexity_data["Algorithm"])):
+    print(f"{complexity_data['Algorithm'][i]:<10} "
+          f"{complexity_data['Sorted'][i]:<10} "
+          f"{complexity_data['Unsorted'][i]:<10} "
+          f"{complexity_data['Duplicate'][i]:<10} "
+          f"{complexity_data['Reverse'][i]:<10} "
+          f"{complexity_data['No Data'][i]:<10}")
+
 print("Results saved to Time_Complexities.xlsx")
 
