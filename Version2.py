@@ -1,14 +1,14 @@
-#Rugby Players Sorting and Timing Script
-#Author: NZRU Data Analysis Example
-#Description: 
-#Sort rugby player ages using multiple algorithms, test on different datasets,
-#record timings, print sample sorted data, and save results + complexities to Excel.
+# Rugby Players Sorting and Timing Script
+# Author: NZRU Data Analysis Example
+# Description: 
+# Sort rugby player ages using multiple algorithms, test on different datasets,
+# record timings, print sample sorted data, and save results + complexities to Excel.
 
 import pandas as pd
 import random
 import time
 
-#Load the dataset
+# Load the dataset
 df = pd.read_excel(r"C:\Users\DELL 5520\Downloads\rugby_players_data-1.xlsx")
 
 # Inspect dataset
@@ -110,17 +110,17 @@ def heap_sort(arr):
         heapify(arr, i, 0)
     return arr
 
-#Prepare test datasets
+# Prepare test datasets
 unsorted_data = ages.copy()                   # Original unsorted data
 sorted_data = sorted(ages)                    # Sorted ascending
 reverse_data = sorted(ages, reverse=True)    # Sorted descending
 duplicate_data = ages + ages[:10]            # Duplicate some entries
 empty_data = []                               # No data
 
-# Shuffle datasets to create unorganized versions (optional)
+# Shuffle datasets to create unorganized versions
 random.shuffle(unsorted_data)
 random.shuffle(duplicate_data)
-# empty_data remains empty
+# Empty_data remains empty
 
 # Store all test cases in a dictionary
 test_cases = {
@@ -131,15 +131,14 @@ test_cases = {
     "No Data": empty_data
 }
 
-#Timing function
+# Timing function
 def time_sort(func, data):
-    """Time a sorting algorithm on a copy of the data"""
     start = time.perf_counter()
     func(data.copy())
     end = time.perf_counter()
     return end - start
 
-#Run sorting tests and print sample data
+# Run sorting tests and print sample data
 algorithms = {
     "Bubble Sort": bubble_sort,
     "Insertion Sort": insertion_sort,
@@ -153,8 +152,9 @@ results = {}
 
 for alg_name, alg_func in algorithms.items():
     print(f"\n--- Testing {alg_name} ---")
-    results[alg_name] = {}  # <-- initialize nested dictionary
+    results[alg_name] = {}  # Initialize nested dictionary
     for case_name, data in test_cases.items():
+        
         # Time the sorting
         time_taken = time_sort(alg_func, data)
         results[alg_name][case_name] = time_taken
@@ -180,5 +180,6 @@ complexity_df = pd.DataFrame(complexity_data)
 with pd.ExcelWriter("Rugby_Sort_Results.xlsx") as writer:
     timing_df.to_excel(writer, sheet_name="Timing Results", index=False)
     complexity_df.to_excel(writer, sheet_name="Complexity Table", index=False)
+
 
 print("\nAll results saved to Rugby_Sort_Results.xlsx")
