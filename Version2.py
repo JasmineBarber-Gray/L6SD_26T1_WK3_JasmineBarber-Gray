@@ -1,7 +1,8 @@
-# Rugby Players Sorting and Timing Script
-# Author: NZRU Data Analysis Example
-# Description: Sort rugby player ages using multiple algorithms, test on different datasets,
-#              record timings, print sample sorted data, and save results + complexities to Excel.
+#Rugby Players Sorting and Timing Script
+#Author: NZRU Data Analysis Example
+#Description: 
+#Sort rugby player ages using multiple algorithms, test on different datasets,
+#record timings, print sample sorted data, and save results + complexities to Excel.
 
 import pandas as pd
 import random
